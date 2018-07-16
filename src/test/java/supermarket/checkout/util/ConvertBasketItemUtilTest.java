@@ -1,5 +1,7 @@
-package supermarket.checkout;
+package supermarket.checkout.util;
 
+import supermarket.checkout.BasketItem;
+import supermarket.checkout.util.ConvertBasketItemUtil;
 import supermarket.data.StockInfo;
 import supermarket.data.StockKeepingUnit;
 import org.junit.Before;
@@ -46,7 +48,7 @@ public class ConvertBasketItemUtilTest {
     public void convert_list_of_strings_to_list_of_items() {
         List<String> itemIDs = Arrays.asList(itemID1, itemID2);
 
-        List<BasketItem> basketItems = util.convertToItem(itemIDs, stockInfo);
+        List<BasketItem> basketItems = util.convertStringsToItems(itemIDs, stockInfo);
 
         assertThat(basketItems, containsInAnyOrder(new BasketItem(unit1, 1), new BasketItem(unit2, 1)));
     }
@@ -55,7 +57,7 @@ public class ConvertBasketItemUtilTest {
     public void given_a_list_of_duplicate_strings_then_do_not_duplicate_item() {
         List<String> itemIDs = Arrays.asList(itemID1, itemID2, itemID1);
 
-        List<BasketItem> basketItems = util.convertToItem(itemIDs, stockInfo);
+        List<BasketItem> basketItems = util.convertStringsToItems(itemIDs, stockInfo);
 
         assertThat(basketItems, containsInAnyOrder(new BasketItem(unit1, 2), new BasketItem(unit2, 1)));
     }
@@ -64,7 +66,7 @@ public class ConvertBasketItemUtilTest {
     public void given_a_list_of_strings_that_are_not_in_stockInfo_then_exclude_them() {
         List<String> itemIDs = Arrays.asList(itemID1, itemID3);
 
-        List<BasketItem> basketItems = util.convertToItem(itemIDs, stockInfo);
+        List<BasketItem> basketItems = util.convertStringsToItems(itemIDs, stockInfo);
 
         assertThat(basketItems, containsInAnyOrder(new BasketItem(unit1, 1)));
     }

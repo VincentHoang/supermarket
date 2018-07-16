@@ -1,6 +1,9 @@
 package supermarket.checkout;
 
 
+import supermarket.checkout.calculation.PriceCalculator;
+import supermarket.checkout.calculation.TotalPriceCalculator;
+import supermarket.checkout.util.ConvertBasketItemUtil;
 import supermarket.data.SpecialPrice;
 import supermarket.data.StockInfo;
 import supermarket.data.StockKeepingUnit;

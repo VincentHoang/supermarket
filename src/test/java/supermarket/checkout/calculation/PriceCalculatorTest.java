@@ -1,6 +1,8 @@
-package supermarket.checkout;
+package supermarket.checkout.calculation;
 
 
+import supermarket.checkout.BasketItem;
+import supermarket.checkout.calculation.PriceCalculator;
 import supermarket.data.SpecialPrice;
 import supermarket.data.StockKeepingUnit;
 import org.junit.Before;
@@ -28,9 +30,15 @@ public class PriceCalculatorTest {
         assertThat(price, is(50.0));
     }
 
-    @Test //TODO 1 for -- ??
-    public void given_special_price_quantity_is_1_then_getPrice_returns_the_regular_price() {
+    @Test
+    public void given_special_price_quantity_is_1_then_getPrice_returns_special_price() {
+      SpecialPrice specialPrice = new SpecialPrice(1, 40);
+      StockKeepingUnit stockKeepingUnit = new StockKeepingUnit("A", 50, specialPrice);
+      BasketItem basketItem = new BasketItem(stockKeepingUnit, 3);
 
+      double price = priceCalculator.getPrice(basketItem);
+
+      assertThat(price, is(120.0));
     }
 
     @Test
@@ -76,5 +84,4 @@ public class PriceCalculatorTest {
         assertThat(price, is(75.0));
     }
 
-    //Error handling??
 }

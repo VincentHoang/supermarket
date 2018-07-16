@@ -1,5 +1,7 @@
 package supermarket.checkout;
 
+import supermarket.checkout.calculation.TotalPriceCalculator;
+import supermarket.checkout.util.ConvertBasketItemUtil;
 import supermarket.data.StockInfo;
 
 import java.util.List;
@@ -17,7 +19,7 @@ public class Checkout {
     }
 
     public double getPrice(List<String> itemIDs) {
-        List<BasketItem> basketItems = convertBasketItemUtil.convertToItem(itemIDs, stockInfo);
+        List<BasketItem> basketItems = convertBasketItemUtil.convertStringsToItems(itemIDs, stockInfo);
         return totalPriceCalculator.getTotalPrice(basketItems);
     }
 

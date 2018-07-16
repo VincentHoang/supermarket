@@ -1,4 +1,6 @@
-package supermarket.checkout;
+package supermarket.checkout.calculation;
+
+import supermarket.checkout.BasketItem;
 
 import java.util.List;
 

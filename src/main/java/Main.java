@@ -1,8 +1,8 @@
-import supermarket.data.StockInfoFactory;
+import supermarket.StockInfoFactory;
 import supermarket.checkout.Checkout;
-import supermarket.checkout.ConvertBasketItemUtil;
-import supermarket.checkout.PriceCalculator;
-import supermarket.checkout.TotalPriceCalculator;
+import supermarket.checkout.util.ConvertBasketItemUtil;
+import supermarket.checkout.calculation.PriceCalculator;
+import supermarket.checkout.calculation.TotalPriceCalculator;
 import supermarket.data.StockInfo;
 
 import java.util.Arrays;

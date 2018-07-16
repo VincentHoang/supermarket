@@ -1,4 +1,4 @@
-package supermarket.checkout;
+package supermarket.checkout.calculation;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +12,10 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.Mockito.when;
+
+import supermarket.checkout.BasketItem;
+import supermarket.checkout.calculation.PriceCalculator;
+import supermarket.checkout.calculation.TotalPriceCalculator;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TotalPriceCalculatorTest {

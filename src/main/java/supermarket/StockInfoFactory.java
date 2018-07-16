@@ -1,11 +1,16 @@
-package supermarket.data;
+package supermarket;
+
+import supermarket.data.SpecialPrice;
+import supermarket.data.StockInfo;
+import supermarket.data.StockKeepingUnit;
 
 import java.util.Arrays;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * convert csv string into POJO
+ * convert csv string into POJO StockKeepingUnit
+ * 
  * This class depends on how we want to "pass in a set of pricing rules"
  * Therefore, I didn't spend much time on error handling
  */
@@ -13,7 +18,7 @@ public class StockInfoFactory {
     public StockInfo create(String rules) {
         String[] stockKeepingUnitStrings = rules.split("\n");
 
-        Map<String, StockKeepingUnit> stockKeepingUnits = Arrays.stream(stockKeepingUnitStrings).map(line -> {
+        Map<String,StockKeepingUnit> stockKeepingUnits = Arrays.stream(stockKeepingUnitStrings).map(line -> {
             String[] split = line.split(",");
 
             if (split.length == 4) {

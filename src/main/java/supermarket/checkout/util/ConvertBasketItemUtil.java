@@ -1,5 +1,6 @@
-package supermarket.checkout;
+package supermarket.checkout.util;
 
+import supermarket.checkout.BasketItem;
 import supermarket.data.StockInfo;
 import supermarket.data.StockKeepingUnit;
 
@@ -8,7 +9,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ConvertBasketItemUtil {
-    public List<BasketItem> convertToItem(List<String> itemIDs, StockInfo stockInfo) {
+    public List<BasketItem> convertStringsToItems(List<String> itemIDs, StockInfo stockInfo) {
         Map<String, StockKeepingUnit> stockKeepingUnits = stockInfo.getStockKeepingUnits();
 
         Map<String, List<String>> groupIDs = itemIDs.stream().collect(Collectors.groupingBy(id -> id));

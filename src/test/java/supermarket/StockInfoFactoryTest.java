@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 import supermarket.data.SpecialPrice;
 import supermarket.data.StockInfo;
-import supermarket.data.StockInfoFactory;
 import supermarket.data.StockKeepingUnit;
 
 import java.util.Map;

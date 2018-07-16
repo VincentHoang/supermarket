@@ -1,8 +1,12 @@
-package supermarket.checkout;
+package supermarket.checkout.calculation;
 
+import supermarket.checkout.BasketItem;
 import supermarket.data.SpecialPrice;
 import supermarket.data.StockKeepingUnit;
 
+/**
+ *  Calculate the price of one item including its quantity
+ */
 public class PriceCalculator {
 
     public double getPrice(BasketItem basketItem) {
@@ -24,7 +28,7 @@ public class PriceCalculator {
         }
     }
 
-    private double getWithSpecialPrice(SpecialPrice specialPrice, int totalQuantity, double unitPrice) { //TODO refactor?
+    private double getWithSpecialPrice(SpecialPrice specialPrice, int totalQuantity, double unitPrice) {
         int currentQuantity = totalQuantity;
         int specialPriceQuantity = specialPrice.getQuantity();
         int totalPrice = 0;
